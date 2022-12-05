@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class PlaneFinderService {
     }
 
     public Iterable<Aircraft> getAircraft() throws IOException {
-        List<Aircraft> positions = new ArrayList<>();
+        return repo.findAll();
+/*        List<Aircraft> positions = new ArrayList<>();
 
         JsonNode aircraftNodes = null;
         try {
@@ -55,9 +57,10 @@ public class PlaneFinderService {
         } else {
             System.out.println("\n>>> No positions to report, generating and providing sample data.\n");
             return saveSamplePositions();
-        }
+        }*/
     }
 
+    @PostConstruct
     private Iterable<Aircraft> saveSamplePositions() {
         repo.deleteAll();
 

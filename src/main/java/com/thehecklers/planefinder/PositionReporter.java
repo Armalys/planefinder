@@ -17,6 +17,7 @@ public class PositionReporter {
     Supplier<Iterable<Aircraft>> reportPositions() {
         return () -> {
             try {
+
                 return pfService.getAircraft();
             } catch (IOException e) {
                 e.printStackTrace();
