@@ -1,3 +1,4 @@
+/*
 package com.thehecklers.planefinder;
 
 import lombok.AllArgsConstructor;
@@ -26,3 +27,4 @@ public class PositionReporter {
         };
     }
 }
+*/

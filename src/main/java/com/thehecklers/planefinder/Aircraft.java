@@ -5,20 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.time.Instant;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Aircraft {
     @Id
-    @GeneratedValue
     private Long id;
     private String callsign, squawk, reg, flightno, route, type, category;
 
@@ -46,15 +42,18 @@ public class Aircraft {
     @JsonProperty("bds40_seen_time")
     private Instant bds40SeenTime;
 
-    public Aircraft(String callsign, String reg, String flightno, String type,
-                    int altitude, int heading, int speed,
-                    double lat, double lon) {
+    public Aircraft(
+            String callsign, String reg, String flightno, String type,
+            int altitude, int heading, int speed,
+            double lat, double lon
+    ) {
 
         this(null, callsign, "sqwk", reg, flightno, "route", type, "ct",
-                altitude, heading, speed, 0, 0,
-                lat, lon, 0D, 0D, 0D,
-                false, true,
-                Instant.now(), Instant.now(), Instant.now());
+             altitude, heading, speed, 0, 0,
+             lat, lon, 0D, 0D, 0D,
+             false, true,
+             Instant.now(), Instant.now(), Instant.now()
+        );
     }
 
     public void setLastSeenTime(long lastSeenTime) {
