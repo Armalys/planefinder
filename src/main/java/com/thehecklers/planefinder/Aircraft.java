@@ -49,10 +49,10 @@ public class Aircraft {
     ) {
 
         this(null, callsign, "sqwk", reg, flightno, "route", type, "ct",
-             altitude, heading, speed, 0, 0,
-             lat, lon, 0D, 0D, 0D,
-             false, true,
-             Instant.now(), Instant.now(), Instant.now()
+                altitude, heading, speed, 0, 0,
+                lat, lon, 0D, 0D, 0D,
+                false, true,
+                Instant.now(), Instant.now(), Instant.now()
         );
     }
 
